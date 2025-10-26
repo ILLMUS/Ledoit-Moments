@@ -1,0 +1,114 @@
+<!-- Font Awesome (put this in <head> if possible) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Achievements Section -->
+<section class="achievements fade-in reveal-on-scroll" id="achievements" data-bg="#c2b5b5">
+  <div class="achievement-box">
+    <i class="fas fa-users achievement-icon" aria-hidden="true"></i>
+    <h3><span class="count" data-target="1000" data-suffix="+">0</span></h3>
+    <p>Happy Clients</p>
+  </div>
+
+  <div class="achievement-box">
+    <i class="fas fa-camera-retro achievement-icon" aria-hidden="true"></i>
+    <h3><span class="count" data-target="200" data-suffix="">0</span></h3>
+    <p>Events Covered</p>
+  </div>
+
+  <div class="achievement-box">
+    <i class="fas fa-film achievement-icon" aria-hidden="true"></i>
+    <h3><span class="count" data-target="5000" data-suffix="+">0</span></h3>
+    <p>Yearly Captures</p>
+  </div>
+
+  <div class="achievement-box">
+    <i class="fas fa-hourglass-half achievement-icon" aria-hidden="true"></i>
+    <h3><span class="count" data-target="5" data-suffix="+">0</span></h3>
+    <p>Years of Experience</p>
+  </div>
+</section>
+
+<!-- Optional small styling -->
+<style>
+  .achievements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3.2rem 1rem;
+    background-color: #f7f7f7;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .achievement-box {
+    flex: 1 1 200px;
+    max-width: 250px;
+    padding: 1.2rem;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+
+  .achievement-icon { font-size: 2rem; color: #c29a56; margin-bottom: 0.5rem; display:block; }
+  .achievement-box h3 { font-size: 2rem; margin: 0; color: #111; }
+  .achievement-box p { color: #555; margin-top: .5rem; }
+
+  @media (max-width: 768px) {
+    .achievements { gap: 1.2rem; padding: 2rem 1rem; }
+    .achievement-box { max-width: 320px; }
+  }
+</style>
+
+<!-- Robust Count-Up Script (place just before </body> or anywhere after the section) -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.getElementById('achievements');
+  if (!section) return;
+
+  const counters = Array.from(section.querySelectorAll('.count'));
+  if (!counters.length) return;
+
+  // helper: format with commas
+  const formatNumber = (num) => num.toLocaleString();
+
+  // animate single counter element from 0 to target (duration in ms)
+  function animateCounter(el, duration = 1400) {
+    const target = Number(el.dataset.target) || 0;
+    const start = 0;
+    const startTime = performance.now();
+    const suffix = el.dataset.suffix || '';
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutCubic
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(start + (target - start) * ease);
+      el.innerText = formatNumber(value);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        // final exact value + suffix (if any)
+        el.innerText = formatNumber(target) + suffix;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Intersection observer on the section so reveal libraries or small offsets don't hide it
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // animate each counter, stagger slightly
+        counters.forEach((el, idx) => {
+          setTimeout(() => animateCounter(el, 1400 + idx * 200), idx * 150);
+        });
+        io.unobserve(section);
+      }
+    });
+  }, { threshold: 0.45 });
+
+  io.observe(section);
+});
+</script>

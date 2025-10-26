@@ -1,0 +1,17 @@
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+  border: 1px solid grey;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: rgb(207, 207, 207);
+  color: rgb(46, 46, 46);
+}

@@ -1,0 +1,78 @@
+   /*============
+        PRICING
+    ============*/
+  .pricing-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--section-bg);
+  color: #fff;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 3rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.pricing-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+}
+
+.pricing-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00e0d1;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.features li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.features i {
+  color: #00e0d1;
+  margin-right: 0.5rem;
+
+}
+
+
+
+.popular {
+  border: 2px solid var(--popular-accent);
+}
+
+
+.privacy-check input[type="checkbox"]:checked {
+  animation: none;
+}
+

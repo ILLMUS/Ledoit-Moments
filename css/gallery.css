@@ -1,0 +1,157 @@
+
+/*==================
+    PHOTO GALLERY
+==================*/
+.grids-container {
+  animation: fadeUp 1.2s ease-out forwards;
+  padding: 1rem;
+
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.serv-title {
+  margin-top: -7rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  font-size: 2rem;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap; /* allows columns to wrap on smaller screens */
+  gap: 0px;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  flex: 1;
+  min-width: 280px; /* important for responsiveness */
+  max-width: 400px;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Medium screens */
+@media (max-width: 992px) {
+  .title, .serv-title {
+    font-size: 1.8rem;
+  }
+
+  .photo-gallery {
+    gap: 0px;
+  }
+
+  .column {
+    min-width: 100%;
+  }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .photo-gallery {
+    flex-direction: column;
+    align-items: center;
+    gap: 0rem;
+  }
+
+  .column {
+    width: 90%;
+    max-width: none;
+  }
+
+  .title,
+  .serv-title,
+  .glitch {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .title,
+  .serv-title {
+    font-size: 1.3rem;
+  }
+
+  .photo img {
+    border-radius: 0px;
+  }
+}
+
+
+.photo-showcase .grids {
+  margin: 3rem 1.5rem;
+  background: #111;
+  color: #fff;
+  gap: 20px;
+}
+
+.photo-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+}
+.photo {
+  margin: 0.2rem;
+}
+
+.photo-card {
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background-color: #1a1a1a;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 20px;
+}
+
+.photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .photo-heading {
+    font-size: 1.5rem;
+  }
+}

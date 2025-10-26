@@ -1,0 +1,64 @@
+/*===========
+    ABOUT
+===========*/
+.about-artist {
+  padding: 5rem 2rem;
+  background: var(--section-bg);
+  color: #fff;
+}
+.about {
+  top: 0%;
+
+}
+
+.about-artist .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.artist-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.artist-text .mission,
+.artist-text .vision {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.signature {
+  max-width: 200px;
+  margin-top: 1rem;
+  filter: brightness(1.2);
+}
+.gallery-btn{
+  margin: auto;
+  padding: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-artist .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about {
+  margin-bottom: -22rem;
+}
+}
+
+@media(max-width:344px){
+.gallery-btn{
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+  }
+}
+

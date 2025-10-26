@@ -1,0 +1,143 @@
+:root {
+  /* Colors */
+  --bg: #c2b5b5;
+  --section-bg: transparent;
+  --text: #f1f1f1;
+  --accent: #ffb300;
+  --accent2: #00fff9;
+  --highlight: transparent;
+  --color-bg: #ffffff;
+  --color-accent: #b8000f;
+  --popular-accent: #e61122;
+  --bg-accent: #e63946;
+  --color-light: #f1f1f1;
+  --color-dark: #121212;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Fonts */
+  --font: 'Segoe UI', sans-serif;
+  --font-main: 'Poppins', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2.5rem;
+  --line-height: 1.6;
+
+  /* Layout */
+  --nav-height: 70px;
+  --nav-gap: 1.5rem;
+  --max-width: 1200px;
+  --radius: 12px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+
+  /* Footer */
+  --footer-bg: #f8f8f8;
+  --footer-text: #333;
+  --footer-link: #555;
+  --footer-link-hover: #000;
+  --footer-credit: #888;
+  --icon-size: 20px;
+
+  /* Navigation */
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --nav-text: #fff;
+  --nav-hover: #f39c12;
+
+  /* Effects */
+  --frost: rgba(5, 5, 5, 0.534);
+  --blur: blur(15px);
+  --transition: all 0.3s ease-in-out;
+  --transition-duration: 1.2s;
+
+  /* Highlight */
+  --highlight-bg: #1e1e2f;
+}
+/* ===== Import All CSS ===== */
+
+/* Global resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+
+
+
+.popular { border: 2px solid var(--popular-accent); }
+
+/* Checkbox Animation for Privacy */
+.privacy-check input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-accent, #ff4b5c);
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  animation: bouncePulse 1.5s ease-in-out infinite;
+  transition: all 0.25s ease;
+}
+
+.privacy-check input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  transform: rotate(45deg) scale(0.8);
+  transition: opacity 0.25s ease;
+}
+
+.privacy-check input[type="checkbox"]:checked {
+  background-color: var(--color-accent, #ff4b5c);
+}
+
+.privacy-check input[type="checkbox"]:checked::after { opacity: 1; }
+
+.privacy-check a {
+  color: var(--color-accent, #ff4b5c);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.privacy-check a:hover { color: #fff; }
+
+@keyframes bouncePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+  transition: opacity 0.4s ease;
+}
+
+#backToTop:hover { background-color: #444; }
